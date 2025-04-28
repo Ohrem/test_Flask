@@ -1,0 +1,10 @@
+flask==2.2.2
+flask-restx==1.0.3
+flask-sqlalchemy==2.5.1
+flask-migrate==3.1.0
+marshmallow==3.19.0
+marshmallow-sqlalchemy==0.28.0
+marshmallow-dataclass==8.5.8
+pytest==7.4.2
+tox==4.11.3
+Werkzeug==2.2.2
