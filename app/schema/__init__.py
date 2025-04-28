@@ -5,7 +5,6 @@ from .toast import (
     ToastResponseSchema,
 )
 
-# Экспорт всех схем для удобного импорта из пакета
 all = [
     "CreateToastSchema",
     "MarkReadToastSchema",

@@ -16,13 +16,11 @@ api = Namespace("toasts", description="Toast Messages Management")
 @api.route("/")
 class ToastsResource(Resource):
     def get(self):
-        """Получить системные toast-сообщения"""
         toasts = ToastService.get_system_toasts()
         schema = ToastResponseSchema(many=True)
         return jsonify(schema.dump(toasts))
 
     def post(self):
-        """Создание нового toast-сообщения"""
         data = request.json
         try:
             valid_data = CreateToastSchema().load(data)
@@ -36,7 +34,6 @@ class ToastsResource(Resource):
 @api.route("/mark-read")
 class MarkReadResource(Resource):
     def post(self):
-        """Отметить toast как прочитанные"""
         data = request.json
         try:
             valid_data = MarkReadToastSchema().load(data)
@@ -49,7 +46,6 @@ class MarkReadResource(Resource):
 @api.route("/user")
 class UserToastResource(Resource):
     def post(self):
-        """Получить toast-сообщения для конкретного пользователя"""
         data = request.json
         try:
             valid_data = GetUserToastSchema().load(data)
@@ -63,7 +59,6 @@ class UserToastResource(Resource):
 @api.route("/user/mark-read")
 class UserMarkReadResource(Resource):
     def post(self):
-        """Отметить пользовательские toast-сообщения как прочитанные"""
         data = request.json
         user_id = data.get("user_id")
         toast_ids = data.get("id")
